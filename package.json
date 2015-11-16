@@ -1,0 +1,29 @@
+{
+  "name": "cyphim",
+  "version": "1.0.0",
+  "description": "Ecrypted Messager",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vannilaknight/CyphIm.git"
+  },
+  "keywords": [
+    "encryption"
+  ],
+  "author": "Taylor Boyd, Jadon Leininger, Wayne Maree, Brennen Heinrich, Neil Byington, Andrew Later, Kelsey St. Claire",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vannilaknight/CyphIm/issues"
+  },
+  "homepage": "https://github.com/Vannilaknight/CyphIm#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.2.5",
+    "passport": "^0.3.2",
+    "path": "^0.12.7"
+  }
+}
