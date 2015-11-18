@@ -1,25 +1,13 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="assets/libs/bootstrap-4.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/libs/mdl-1.0.6/material.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script type="text/javascript" src="assets/libs/mdl-1.0.6/material.js"></script>
 </head>
 <body>
-    <div class="loginDialog">
-        <form>
-            <div class="form-group">
-                <label for="nameInput">Name</label>
-                <input type="text" class="form-control" id="nameInput" placeholder="John Dough">
-            </div>
-            <div class="form-group">
-                <label for="emailInput">Name</label>
-                <input type="email" class="form-control" id="emailInput" placeholder="john.dough@email.com">
-            </div>
-            <label>
-                <input type="checkbox"> Keep me signed in
-            </label>
-            <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-    </div>
+    <div id="container"></div>
+    <script src="http://localhost:8090/webpack-dev-server.js"></script>
     <script type="text/javascript" src="assets/js/bundle.js" charset="utf-8"></script>
 </body>
 </html>
