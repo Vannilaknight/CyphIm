@@ -7,11 +7,11 @@ var LoginDialog = React.createClass({
                 <h1>Sign In</h1>
                 <form>
                     <div className="mdl-textfield mdl-js-textfield">
-                    <input className="mdl-textfield__input" type="text" id="nameInput">
+                    <input className="mdl-textfield__input" type="text" id="nameInput" />
                         <label className="mdl-textfield__label" for="nameInput">John Dough</label>
                     </div>
                     <div className="mdl-textfield mdl-js-textfield">
-                        <input className="mdl-textfield__input" type="text" id="emailInput">
+                        <input className="mdl-textfield__input" type="text" id="emailInput" />
                         <label className="mdl-textfield__label" for="emailInput">john.dough@email.com</label>
                     </div>
                     <br />

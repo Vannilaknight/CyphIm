@@ -3,7 +3,7 @@ module.exports = {
     output: {
         path: __dirname,
         filename: './public/assets/js/bundle.js',
-        publicPath: 'http://localhost:8090/assets'
+        publicPath: 'http://localhost:8080/assets'
     },
     module: {
         loaders:[

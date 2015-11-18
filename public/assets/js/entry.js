@@ -1,2 +1,1 @@
-var React = require('react'),
-    LoginDialog = require('react-modules/LoginDialog');
+var LoginDialog = require('./react-modules/LoginDialog');
