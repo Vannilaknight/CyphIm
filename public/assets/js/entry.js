@@ -1,1 +1,1 @@
-var LoginDialog = require('./react-modules/LoginDialog');
+import Main from './react-modules/Main.jsx';
