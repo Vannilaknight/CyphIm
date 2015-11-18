@@ -1,13 +1,13 @@
-var React = require('react');
+import React from 'react';
 
-var LoginDialog = React.createClass({
-    render: function() {
+class LoginDialog extends React.Component {
+    render() {
         return (
             <div className="loginDialog">
                 <h1>Sign In</h1>
                 <form>
                     <div className="mdl-textfield mdl-js-textfield">
-                    <input className="mdl-textfield__input" type="text" id="nameInput" />
+                        <input className="mdl-textfield__input" type="text" id="nameInput" />
                         <label className="mdl-textfield__label" for="nameInput">John Dough</label>
                     </div>
                     <div className="mdl-textfield mdl-js-textfield">
@@ -22,6 +22,6 @@ var LoginDialog = React.createClass({
             </div>
         );
     }
-});
+}
 
-module.exports = LoginDialog;
+export default LoginDialog;
