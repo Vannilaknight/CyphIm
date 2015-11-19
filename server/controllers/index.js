@@ -3,7 +3,11 @@
  */
 (function (controllers){
     var homeController = require('./HomeController');
+    var loginController = require('./LoginController');
+    var messageController = require('./MessageController');
     controllers.init = function (app){
         homeController.init(app);
+        loginController.init(app);
+        messageController.init(app);
     }
 })(module.exports);

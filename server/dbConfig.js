@@ -2,5 +2,5 @@
  * Created by Neal yingtonB on 11/16/2015.
  */
 module.exports={
-    'url' : 'string path to db'// update string path to database
-};
+    'url' : 'mongodb://cyphim:test@ds054298.mongolab.com:54298/crypim'// update string path to database
+}
