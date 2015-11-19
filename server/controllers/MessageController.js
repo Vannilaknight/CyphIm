@@ -3,10 +3,18 @@
  */
 (function(messageController){
     messageController.init = function(app){
-        app.get('/message', function(req, res){
-            //render message board
+        app.get('/createChat', function(){
+            //create chat rooms
         });
-        app.post('/message', function(req, res){
+        app.post('/createChat', function(){
+            //redirect to chat room
+        })
+
+
+        app.get('/chat', function(req, res){
+            res.render('./Chat/ChatRoom');
+        });
+        app.post('/chat', function(req, res){
             //handle messages
         });
     }

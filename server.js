@@ -36,7 +36,17 @@ var engines = require("consolidate");
 app.engine('html', engines.mustache);
 app.set('view engine', 'html');
 
-var server = http.createServer(app);
 
-app.listen(port);
+var server = http.createServer(app);
+var socketIO = require('socket.io')();
+var io = socketIO.listen(server);
+
+var sockets = [];
+io.on('connection', function(socket){
+    sockets.push(socket);
+    console.log('user connected');
+    console.log(sockets)
+});
+
+server.listen(port);
 console.log("listening on port: "+port)
