@@ -3,6 +3,8 @@
  */
 var passport = require('passport');
 var User = require('../models/user');
+var login = require('./login');
+var singUp = require('./signup');
 
 
 module.exports = function(){
@@ -15,4 +17,7 @@ module.exports = function(){
             done(err, user);
         });
     });
+
+    login();
+    singUp();
 }
