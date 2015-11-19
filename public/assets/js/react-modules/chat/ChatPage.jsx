@@ -15,3 +15,5 @@ class ChatPage extends React.Component {
 }
 
 ReactDOM.render(<ChatPage />, document.getElementById('container'));
+
+export default ChatPage;
