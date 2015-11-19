@@ -1,10 +1,28 @@
 import React from 'react';
 
 class MessageInput extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.packageMessage = this.packageMessage.bind(this);
+        this.handleKeyDown = this.handleKeyDown.bind(this);
+    }
+    componentDidMount() {
+        document.addEventListener('keyup', this.handleKeyDown);
+    }
     packageMessage(next) {
         var message = this.refs.textBox.value;
-        this.refs.textBox.value = "";
-        next(message);
+
+        if(message && message.trim() != '') {
+            this.refs.textBox.value = "";
+            next(message);
+        }
+    }
+    handleKeyDown(e) {
+    var ENTER = 13;
+        if( e.keyCode == ENTER ) {
+            this.packageMessage(this.props.sendMessage);
+        }
     }
     render() {
         return (

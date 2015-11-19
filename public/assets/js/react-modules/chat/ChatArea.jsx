@@ -15,10 +15,13 @@ class ChatArea extends React.Component {
     sendMessage(message) {
         var sentMsgs = this.state.sentMsgs;
         sentMsgs.push(
-            <ChatMessage message={message} isMe={true}/>
+            <ChatMessage key={sentMsgs.length - 1} message={message} isMe={true}/>
         );
 
         this.setState({sentMsgs: sentMsgs});
+    }
+    clearChatLog() {
+        this.setState({sentMsgs: []});
     }
     render() {
         return (

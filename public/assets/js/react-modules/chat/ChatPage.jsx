@@ -14,18 +14,21 @@ class ChatPage extends React.Component {
             ],
             connectedUser: ''
         };
+
+        this.connectToUser = this.connectToUser.bind(this);
     }
     connectToUser(username) {
         var users = this.state.users;
         var connectedUser = users[users.indexOf(username)];
 
         this.setState({connectedUser: connectedUser});
+        this.refs.chatArea.clearChatLog();
     }
     render() {
         return (
             <div className="chat-page">
-                <ChatSidePanel users={this.state.users} />
-                <ChatArea connectedUser={this.state.connectedUser} />
+                <ChatSidePanel users={this.state.users} connectToUser={this.connectToUser} />
+                <ChatArea ref="chatArea" connectedUser={this.state.connectedUser} />
             </div>
         );
     }
