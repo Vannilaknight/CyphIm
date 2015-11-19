@@ -1,1 +1,1 @@
-import Main from './react-modules/Main.jsx';
+import Main from './react-modules/chat/ChatPage.jsx';
