@@ -13,6 +13,7 @@ module.exports = function(){
       passReqToCallback : true
     }, function(req, username, password, done){
         findOrCreateUser = function(){
+
             mongoose.model('User').findOne({'username':username}, function(err, user){
                 if(err){
                     return done(err);
