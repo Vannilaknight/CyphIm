@@ -1,6 +1,30 @@
 import React from 'react';
+import ChatUser from './ChatUser.jsx';
 
 class ChatSidePanel extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            userComponents: []
+        };
+
+        this.buildUserComponents = this.buildUserComponents.bind(this);
+    }
+    componentDidMount() {
+        this.buildUserComponents(this.props.users);
+    }
+    buildUserComponents(users) {
+        var userComponents = [];
+
+        for(var user in users) {
+            userComponents.push(
+                <ChatUser username={users[user]}/>
+            );
+        }
+
+        this.setState({userComponents: userComponents});
+    }
     render() {
         return (
             <div className="chat-side-panel">
@@ -12,18 +36,7 @@ class ChatSidePanel extends React.Component {
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td className="mdl-data-table__cell--non-numeric">Mike Shinoda</td>
-                        <td><i className="fa fa-check-circle is-online"></i></td>
-                    </tr>
-                    <tr>
-                        <td className="mdl-data-table__cell--non-numeric">Jan Michael Vincent</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td className="mdl-data-table__cell--non-numeric">Yeezus</td>
-                        <td><i className="fa fa-check-circle is-online"></i></td>
-                    </tr>
+                        {this.state.userComponents}
                     </tbody>
                 </table>
             </div>

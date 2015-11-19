@@ -7,10 +7,9 @@ class ChatArea extends React.Component {
         super(props);
 
         this.state = {
-            connectedUser: 'Mike Shinoda',
             sentMsgs: [],
             receivedMsgs: []
-        }
+        };
         this.sendMessage = this.sendMessage.bind(this);
     }
     sendMessage(message) {
@@ -27,7 +26,7 @@ class ChatArea extends React.Component {
                 <div className="chat-history mdl-shadow--2dp">
                     <header className="mdl-layout__header">
                         <div className="mdl-layout__header-row">
-                            <span className="mdl-layout-title">Chatting with: {this.state.connectedUser}</span>
+                            <span className="mdl-layout-title">Chatting with: {this.props.connectedUser}</span>
                         </div>
                     </header>
                     <div className="messages">
