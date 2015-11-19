@@ -1,6 +1,3 @@
-/**
- * Created by Neal yingtonB on 11/16/2015.
- */
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 var bCrypt = require('bcrypt-nodejs');
