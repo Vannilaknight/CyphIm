@@ -1,7 +1,6 @@
 /**
- * Created by Neal yingtonB on 11/16/2015.
+ * Created by Neal Byington on 11/16/2015.
  */
-var http = require('http');
 var port = 3000;
 var express = require('express');
 var flash = require('connect-flash');
@@ -31,8 +30,6 @@ app.set('views', __dirname+"/Views");
 var engines = require("consolidate");
 app.engine('html', engines.mustache);
 app.set('view engine', 'html');
-
-var server = http.createServer(app);
 
 app.listen(port);
 console.log("listening on port: "+port)

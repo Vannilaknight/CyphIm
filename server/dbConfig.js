@@ -3,4 +3,4 @@
  */
 module.exports={
     'url' : 'string path to db'// update string path to database
-}
+};
