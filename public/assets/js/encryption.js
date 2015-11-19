@@ -3,6 +3,8 @@ class Encryption {
 		this.privateKey = [];
 		this.publicKey = [];
 		this.keyLength = 255;
+
+		this.generateKeys();
 	}
 	generateKeys() {
 		// Generates the unique key for each session
