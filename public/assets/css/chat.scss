@@ -1,0 +1,78 @@
+.is-online {
+	color: #8BC34A;
+}
+
+.chat-page {
+	left: 25%;
+	margin: 100px auto;
+	position: fixed;
+}
+
+.chat-side-panel {
+	display: inline-block;
+	float: left;
+	margin-right: 20px;
+}
+
+.chat-side-panel thead {
+	background-color: #2196F3;
+	color: #FFFFFF;
+}
+
+.chat-side-panel th {
+	color: #FFFFFF;
+}
+
+.chat-area {
+	display: inline-block;
+	height: 700px;
+	width: 500px;
+}
+.chat-area header {
+	background-color: #2196F3;
+}
+
+.chat-area .chat-history {
+	background-color: #FFFFFF;
+	height: 82%;
+  overflow-y: auto;
+}
+
+.chat-area .message-input {
+	height: 10%;
+	margin-top: 20px;
+}
+
+.chat-area .message-input textarea {
+	float: left;
+	height: 100%;
+	width: 82%;
+}
+
+.chat-area .message-input button {
+	margin-left: 20px;
+	position: relative;
+	top: 10px;
+}
+
+.chat-area .messages {
+	padding: 5px;
+}
+
+.chat-area .messages div {
+	display: block;
+}
+
+.chat-area .messages .other-user {
+	background-color: #00BCD4;
+	color: #FFFFFF;
+	padding: 5px;
+	text-align: left;
+}
+
+.chat-area .messages .me {
+	background-color: #03A9F4;
+	color: #FFFFFF;
+	padding: 5px;
+	text-align: right;
+}

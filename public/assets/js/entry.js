@@ -1,0 +1,1 @@
+import ChatPage from './react-modules/chat/ChatPage.jsx';

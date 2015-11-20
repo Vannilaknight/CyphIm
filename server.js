@@ -1,10 +1,10 @@
 /**
- * Created by Neal yingtonB on 11/16/2015.
+ * Created by Neal Byington on 11/16/2015.
  */
-var http = require('http');
 var port = 3000;
 var express = require('express');
 var flash = require('connect-flash');
+
 var app = express();
 app.use(flash());
 
@@ -36,25 +36,59 @@ var engines = require("consolidate");
 app.engine('html', engines.mustache);
 app.set('view engine', 'html');
 
-
-var server = http.createServer(app);
-var io = require('socket.io')(server);
-
+var server = require('http').createServer(app);
+var socketIO = require('socket.io')();
+var io = socketIO.listen(server);
 var sockets = [];
-io.on('connection', function(socket){
-    sockets.push(socket);
-    console.log('user connected');
 
-    socket.on('disconnect', function(){
-        sockets.splice(sockets.indexOf(socket), 1);
-    });
+var usernames = {};
+var numUsers = 0;
 
-    socket.on("sendMsg", function(data){
-        sockets.forEach(function(s){
-            s.emit("msgReceived", data);
+io.on('connection', function(socket) {
+    var addUser = false;  
+    // when the client emits 'new message', this listens and executes
+      socket.on('new message', function (data) {
+        // we tell the client to execute 'new message'
+        socket.broadcast.emit('new message', {
+          username: socket.username,
+          message: data
         });
-    })
+      });
+
+      // when the client emits 'add user', this listens and executes
+      socket.on('add user', function (username) {
+        // we store the username in the socket session for this client
+        socket.username = username;
+        // add the client's username to the global list
+        usernames[username] = username;
+        ++numUsers;
+        addedUser = true;
+        socket.emit('login', {
+          numUsers: numUsers
+        });
+        // echo globally (all clients) that a person has connected
+        socket.broadcast.emit('user joined', {
+          username: socket.username,
+          numUsers: numUsers
+        });
+      });
+
+      // when the user disconnects.. perform this
+      socket.on('disconnect', function () {
+        // remove the username from global usernames list
+        if (addedUser) {
+          delete usernames[socket.username];
+          --numUsers;
+
+          // echo globally that this client has left
+          socket.broadcast.emit('user left', {
+            username: socket.username,
+            numUsers: numUsers
+          });
+        }
+      });
 });
+
 
 server.listen(port);
 console.log("listening on port: "+port)
