@@ -21,8 +21,12 @@ var passport = require('passport');
             failureRedirect: '/login'
         }));
 
-        app.get('logout', function(req, res){
+        app.get('/logout', function(req, res){
            //logout user
+        });
+        
+        app.get('/chat', function(req, res) {
+            res.render('./Chat/ChatRoom') 
         });
     }
 })(module.exports);
