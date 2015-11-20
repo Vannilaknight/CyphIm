@@ -16,8 +16,8 @@ class ChatArea extends React.Component {
     }
     componentWillReceiveProps(newProps) {
         this.setState({
-            sentMessages: this.props.connectedUser.sentMessages,
-            receivedMessages: this.props.connectedUser.receivedMessages
+            sentMessages: newProps.connectedUser.sentMessages,
+            receivedMessages: newProps.connectedUser.receivedMessages
         });
     }
     sendMessage(message) {
