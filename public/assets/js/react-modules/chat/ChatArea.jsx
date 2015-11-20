@@ -22,15 +22,15 @@ class ChatArea extends React.Component {
     }
     sendMessage(message) {
         var sentMessages = this.state.sentMessages;
+
+        message = this.state.encryptor.encrypt(message);
+
         sentMessages.push(
             <ChatMessage key={sentMessages.length - 1} message={message} isMe={true}/>
         );
 
         this.setState({sentMessages: sentMessages});
         this.props.addSentMessage.bind(null, message);
-
-        message = this.state.encryptor.encrypt(message);
-        console.log(message);
     }
     render() {
         return (

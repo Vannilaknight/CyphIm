@@ -35,6 +35,7 @@
 .chat-area .chat-history {
 	background-color: #FFFFFF;
 	height: 82%;
+  overflow-y: auto;
 }
 
 .chat-area .message-input {
