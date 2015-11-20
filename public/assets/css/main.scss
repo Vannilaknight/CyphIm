@@ -1,0 +1,11 @@
+@import '../libs/mdl-1.0.6/material.min.css';
+@import '../libs/font-awesome-4.4.0/scss/font-awesome';
+
+@import 'chat';
+@import 'login';
+
+html, body {
+	background-color: #EEEEEE;
+	margin: 0 auto;
+	padding: 0;
+}

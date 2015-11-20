@@ -1,6 +1,7 @@
 import React from 'react';
 import ChatMessage from './ChatMessage.jsx';
 import MessageInput from './MessageInput.jsx';
+import Encryption from '../../encryption';
 
 class ChatArea extends React.Component {
     constructor(props) {
@@ -8,7 +9,8 @@ class ChatArea extends React.Component {
 
         this.state = {
             sentMessages: [],
-            receivedMessages: []
+            receivedMessages: [],
+            encryptor: new Encryption()
         };
         this.sendMessage = this.sendMessage.bind(this);
     }
@@ -26,6 +28,9 @@ class ChatArea extends React.Component {
 
         this.setState({sentMessages: sentMessages});
         this.props.addSentMessage.bind(null, message);
+
+        message = this.state.encryptor.encrypt(message);
+        console.log(message);
     }
     render() {
         return (
