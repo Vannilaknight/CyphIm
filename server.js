@@ -38,14 +38,22 @@ app.set('view engine', 'html');
 
 
 var server = http.createServer(app);
-var socketIO = require('socket.io')();
-var io = socketIO.listen(server);
+var io = require('socket.io')(server);
 
 var sockets = [];
 io.on('connection', function(socket){
     sockets.push(socket);
     console.log('user connected');
-    console.log(sockets)
+
+    socket.on('disconnect', function(){
+        sockets.splice(sockets.indexOf(socket), 1);
+    });
+
+    socket.on("sendMsg", function(data){
+        sockets.forEach(function(s){
+            s.emit("msgReceived", data);
+        });
+    })
 });
 
 server.listen(port);
