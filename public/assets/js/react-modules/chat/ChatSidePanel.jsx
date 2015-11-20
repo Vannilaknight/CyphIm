@@ -18,9 +18,9 @@ class ChatSidePanel extends React.Component {
         var userComponents = [];
 
         for(var i in users) {
-            var username = users[i];
+            var username = users[i].username;
             userComponents.push(
-                <ChatUser key={i} username={users[i]} selectUser={this.props.connectToUser.bind(null, username)}/>
+                <ChatUser key={i} username={username} selectUser={this.props.connectToUser.bind(null, username)}/>
             );
         }
 

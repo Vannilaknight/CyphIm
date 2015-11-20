@@ -9,26 +9,47 @@ class ChatPage extends React.Component {
 
         this.state = {
             users: [
-                'Jan Michael Vincent',
-                'Mike Shinoda'
+                {
+                    username: 'Jan Michael Vincent',
+                    receivedMessages: [],
+                    sentMessages: []
+                },
+                {
+                    username: 'Mike Shinoda',
+                    receivedMessages: [],
+                    sentMessages: []
+                }
             ],
-            connectedUser: ''
+            connectedUser: 'Nobody'
         };
 
         this.connectToUser = this.connectToUser.bind(this);
+        this.addSentMessage = this.addSentMessage.bind(this);
     }
     connectToUser(username) {
         var users = this.state.users;
-        var connectedUser = users[users.indexOf(username)];
+        var connectedUser = null;
+
+        for(var i in users) {
+            if(users[i].username === username) {
+                connectedUser = users[i];
+            }
+        }
 
         this.setState({connectedUser: connectedUser});
-        this.refs.chatArea.clearChatLog();
+        this.refs.chatArea.switchConnectedUser();
+    }
+    addSentMessage(message) {
+        var connectedUser = this.state.connectedUser;
+        connectedUser.sentMessages.push(message);
+
+        this.setState({connectedUser: connectedUser});
     }
     render() {
         return (
             <div className="chat-page">
                 <ChatSidePanel users={this.state.users} connectToUser={this.connectToUser} />
-                <ChatArea ref="chatArea" connectedUser={this.state.connectedUser} />
+                <ChatArea ref="chatArea" connectedUser={this.state.connectedUser} addSentMessage={this.addSentMessage} />
             </div>
         );
     }
