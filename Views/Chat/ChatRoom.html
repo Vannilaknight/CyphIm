@@ -4,7 +4,21 @@
     <meta charset="UTF-8">
     <title>CyphIm</title>
 </head>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io();
+
+    socket.on('msgReceived',function(data){
+        // do something with your message!!!!
+        console.log('Message received!');
+        console.log(data);//<---- is your msg
+    });
+</script>
 <body>
     <h1>This is the chat room</h1>
 </body>
+<script>
+    //example message sending (capture vai your own method)
+    socket.emit('sendMsg', 'message sent'); //<-- first param is static do not change, second is the msg
+</script>
 </html>
