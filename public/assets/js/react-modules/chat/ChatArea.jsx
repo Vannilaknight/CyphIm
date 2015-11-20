@@ -12,6 +12,12 @@ class ChatArea extends React.Component {
         };
         this.sendMessage = this.sendMessage.bind(this);
     }
+    componentWillReceiveProps(newProps) {
+        this.setState({
+            sentMessages: this.props.connectedUser.sentMessages,
+            receivedMessages: this.props.connectedUser.receivedMessages
+        });
+    }
     sendMessage(message) {
         var sentMessages = this.state.sentMessages;
         sentMessages.push(
@@ -20,13 +26,6 @@ class ChatArea extends React.Component {
 
         this.setState({sentMessages: sentMessages});
         this.props.addSentMessage.bind(null, message);
-    }
-    switchConnectedUser() {
-        console.log(this.props.connectedUser);
-        this.setState({
-            sentMessages: this.props.connectedUser.sentMessages,
-            receivedMessages: this.props.connectedUser.receivedMessages
-        });
     }
     render() {
         return (

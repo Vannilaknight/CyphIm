@@ -37,7 +37,6 @@ class ChatPage extends React.Component {
         }
 
         this.setState({connectedUser: connectedUser});
-        this.refs.chatArea.switchConnectedUser();
     }
     addSentMessage(message) {
         var connectedUser = this.state.connectedUser;
